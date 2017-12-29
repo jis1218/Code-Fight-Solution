@@ -12,11 +12,14 @@ String messageFromBinaryCode(String code) {
 	ArrayList<String> list = new ArrayList<>();
 	int i=0;
 	while(true){
-
+			/**
+			* String 값을 8개 단위로 나눠서 arraylist에 넣어준다.
+			**/
 			list.add(code.substring(8*i, 8*i+8));
-			System.out.println(list.get(i));
 
-
+			/**
+			* 만약 범위를 넘어가게 되면 while 문을 빠져나온다.
+			**/
 			if(8*i+8>=code.length()){
 					break;
 			}
@@ -30,13 +33,16 @@ String messageFromBinaryCode(String code) {
 	return result;
 	}
 
+	/**
+	* 자른 string을 Integer로 바꿔준 후 2진수 -> 10진수로 바꿔준다.
+	**/
 	public String stringToChar(String a){
 
 	    int b = Integer.parseInt(a);
 	    int sum = 0;
 	    int j = 0;
 	    while(true){
-	        sum = b%10*(int)Math.pow(2, j) + sum;
+	        sum = b%10*(int)Math.pow(2, j) + sum; //2진수를 10진수로 바꿔주는 로직
 	        b /= 10;
 	        j++;
 
