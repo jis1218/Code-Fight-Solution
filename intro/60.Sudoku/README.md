@@ -8,6 +8,10 @@ boolean sudoku(int[][] grid) {
 
     TreeSet<Integer> set = new TreeSet<>();
 
+    /**
+    * 각 sub-grid의 합이 45는 아닌지, 중복되는 값은 없는지 찾아준다. (1부터 9까지 더하면 45)
+    * 중복값은 set을 통해 찾는다.
+    **/
     for(int l=0; l<3; l++){
         for(int m=0; m<3; m++){
             int sum = 0;            
@@ -23,6 +27,9 @@ boolean sudoku(int[][] grid) {
         }
     }
 
+    /**
+    * 각 행, 열별로 합이 45인지 확인한다.
+    **/
     for(int i=0; i<9; i++){
         int sum2 = 0;
         int sum3 = 0;
