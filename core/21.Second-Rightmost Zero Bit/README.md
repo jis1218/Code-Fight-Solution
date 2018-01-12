@@ -18,6 +18,6 @@ int secondRightmostZeroBit(int n) {
 ##### 이런 풀이도 있다.
 ```java
 int secondRightmostZeroBit(int n) {
-  return ~(n|(n+1)) & ((n|(n+1))+1) ;
+  return ~(n|(n+1)) & ((n|(n+1))+1) ; //1을 더하게 되면 어떻게든 첫번째 0은 사라지게 됨, 1을 한번 더하면 2번째 0도 사라지게 됨
 }
 ```
