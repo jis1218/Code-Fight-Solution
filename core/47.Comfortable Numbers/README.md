@@ -39,7 +39,7 @@ int comfortableNumbers(int l, int r) {
 }
 ```
 
-##### 다른 풀이 - 공통되는 부분을 함수로 뺐다.
+##### 다른 풀이 - 공통되는 부분을 함수로 뺐다. 나의 풀이와 크게 다른점이 없는 듯 하다.
 ```java
 int comfortableNumbers(int L, int R) {
     int t = 0;
