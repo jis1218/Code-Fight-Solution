@@ -10,7 +10,7 @@ rotateImage(a) =
     [[7, 4, 1],
      [8, 5, 2],
      [9, 6, 3]]
-##### in-place로 풀어야 하는데 아래 풀이가 in-place가 맞는지 모르겠다. 왜냐면 구글에는 in-place를 따로 변수를 설정하지 않고 그 안에서 푸는 것으로 나와 있기 때문이다. 일단 내 풀이는 이렇고
+##### in-place로 풀어야 하는데 아래 풀이가 in-place가 맞는지 모르겠다. 왜냐면 구글에는 in-place를 따로 ##### 변수를 설정하지 않고 그 안에서 푸는 것으로 나와 있기 때문이다.https://en.wikipedia.org/wiki/In-place_algorithm) 일단 내 풀이는 이렇고
 ```java
 int[][] rotateImage(int[][] a) {
     
