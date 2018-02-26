@@ -6,6 +6,7 @@ Example
 For comb1 = "*..*" and comb2 = "*.*", the output should be
 combs(comb1, comb2) = 5.
 Although it is possible to place the combs like on the first picture, the best way to do this is either picture 2 or picture 3.
+##### 나의 풀이 - comb1에 comb1+com2까지 되도록 "."를 넣었음, 코드가 더 복잡해짐
 ```java
 int combs(String comb1, String comb2) {
     return Math.min(find(comb1, comb2), find(comb2, comb1));
