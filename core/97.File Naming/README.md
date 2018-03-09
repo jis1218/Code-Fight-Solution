@@ -22,3 +22,36 @@ String[] fileNaming(String[] names) {
     return names;
 }
 ```
+
+##### 예전에 푼거... 접근 방식은 거의 비슷하다.
+```java
+String[] fileNaming(String[] names) {
+
+    String temp = "";
+    boolean tag = true;
+    boolean anotag = false;
+
+    for(int i=1; i<names.length; i++){
+        tag = true;
+        int num = 1;
+        temp = names[i];
+        while(tag){
+            anotag = false;
+            for(int j=0; j<i; j++){
+                if(temp.equals(names[j])){
+                    temp = names[i] + "("+ num + ")";
+                    num++;
+                    anotag = true;
+                }
+            }
+            /**
+            * 파일 이름이 같은 것이 없을 때 while 문을 그만 돌게 한다.
+            * 같은 것이 있으면 처음부터 다시 찾는다.
+            **/
+            if(!anotag) tag = false;
+        }
+            names[i] = temp;
+    }
+    return names;    
+}
+```
