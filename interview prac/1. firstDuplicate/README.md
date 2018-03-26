@@ -10,15 +10,14 @@ firstDuplicate(a) = -1.
 ```java
 int firstDuplicate(int[] a) {
 
-    int b[]=Arrays.copyOf(a, a.length);
-    Arrays.sort(b);
+    int b[]=Arrays.copyOf(a, a.length); //a를 복사해 b를 만든다. 
+    Arrays.sort(b); // b를 sorting하여 오름차순으로 만든다.
     int index = a.length;
 
     for(int i=0; i<b.length-1; i++){
-        if(b[i]==b[i+1]){
+        if(b[i]==b[i+1]){ //중복되는 수가 있다면 그 index 값을 찾아 index 변수에 저장한다.
             int num=0;
             for(int j=0; j<a.length; j++){
-
                 if(b[i]==a[j]){
                     if(num==1 && j<index){
                     index = j;
