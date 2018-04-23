@@ -37,6 +37,7 @@ String[][] volleyballPositions(String[][] formation, int k) {
 ```
 
 ##### 이렇게 풀어도 됨
+```java
 String[][] volleyballPositions(String[][] formation, int k) {
     k = k%6;
     for (int i = 0; i < k; i++) {
