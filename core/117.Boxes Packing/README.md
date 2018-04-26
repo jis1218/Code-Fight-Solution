@@ -30,3 +30,21 @@ boolean boxesPacking(int[] length, int[] width, int[] height) {
     return true;
 }
 ```
+
+##### 다른 풀이 - 결국 나랑 똑같은 접근이긴 한데 for문을 하나 덜 돌렸다. 괜찮은 풀이인듯
+```java
+boolean boxesPacking(int[] l, int[] w, int[] h) {
+    for (int i = 0; i < l.length; i++) {
+        int[] lI = new int[]{l[i],w[i],h[i]};
+        Arrays.sort(lI);
+        for (int j = 0; j < i; j++) {
+            int[] lJ = new int[]{l[j],w[j],h[j]};
+            Arrays.sort(lJ);
+            if (!((lJ[0]<lI[0] && lJ[1]<lI[1] && lJ[2]<lI[2])
+               || (lJ[0]>lI[0] && lJ[1]>lI[1] && lJ[2]>lI[2])))
+                return false;
+        }
+    }
+    return true;
+}
+```
