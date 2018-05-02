@@ -11,6 +11,52 @@ Here is the bishop's path:
 [1, 2] -> [2, 1] -(reflection from the bottom edge)-> [2, 0] -(reflection from the left edge)->
 [1, 0] -> [0, 1]
 
+##### 최종 답 - 함수로 간추릴 수도 있을 듯, for문을 안썼기 때문에 O(1) 시간이 걸릴 것 같다.
+```java
+int[] chessBishopDream(int[] boardSize, int[] initPosition, int[] initDirection, int k) {
+    int net = k%(boardSize[1]*2);
+    if(initDirection[1]==1){
+        if(net<boardSize[1]-initPosition[1]){
+            initPosition[1] += net;
+        }else if(net<boardSize[1]*2-initPosition[1]){
+            initPosition[1] = 2*boardSize[1]-net-initPosition[1]-1;
+        }else{
+            initPosition[1] = initPosition[1]-(2*boardSize[1]-net);
+        }
+    }else{
+        if(net<initPosition[1]+1){
+            initPosition[1] -= net;
+        }else if(net<boardSize[1]+initPosition[1]+1){
+            initPosition[1] = net-initPosition[1]-1;
+        }else{
+            initPosition[1] = boardSize[1]*2-net+initPosition[1];
+        }
+    }
+    
+    net = k%(boardSize[0]*2);
+    
+    if(initDirection[0]==1){
+        if(net<boardSize[0]-initPosition[0]){
+            initPosition[0] += net;
+        }else if(net<boardSize[0]*2-initPosition[0]){
+            initPosition[0] = 2*boardSize[0]-net-initPosition[0]-1;
+        }else{
+            initPosition[0] = initPosition[0]-(2*boardSize[0]-net);
+        }
+    }else{
+        if(net<initPosition[0]+1){
+            initPosition[0] -= net;
+        }else if(net<boardSize[0]+initPosition[0]+1){
+            initPosition[0] = net-initPosition[0]-1;
+        }else{
+            initPosition[0] = boardSize[0]*2-net+initPosition[0];
+        }
+    }    
+    return initPosition;    
+}
+```
+
+##### 첫 풀이 시도... 결국 안됨
 ```java
 int[] chessBishopDream(int[] boardSize, int[] initPosition, int[] initDirection, int k) {
     
@@ -54,5 +100,18 @@ int[] chessBishopDream(int[] boardSize, int[] initPosition, int[] initDirection,
     
     return initPosition;
 
+}
+```
+
+##### 풀이 중 이게 있었다. 진짜 수학적이고 java 문법의 활용을 엄청 잘한 풀이이다.
+```java
+int[] chessBishopDream(int[] s, int[] p, int[] d, int k) {
+    k %= (4 * s[0] * s[1]); //공배수
+    for (int a = 0; a < k; a++)
+        for (int i = 0; i < 2; i++)
+            if ((p[i] += d[i]) < 0 || p[i] >= s[i])
+                p[i] += (d[i] = -d[i]);
+    
+    return p;
 }
 ```
