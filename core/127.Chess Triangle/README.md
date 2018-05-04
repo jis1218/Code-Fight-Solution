@@ -1,7 +1,7 @@
 Consider a bishop, a knight and a rook on an n × m chessboard. They are said to form a triangle if each piece attacks exactly one other piece and is attacked by exactly one piece. Calculate the number of ways to choose positions of the pieces to form a triangle.
 Note that the bishop attacks pieces sharing the common diagonal with it; the rook attacks in horizontal and vertical directions; and, finally, the knight attacks squares which are two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from its position.
 
-##### 체스판이 주어졌을 때 각 크기의 가지수를 찾는 것이 중요
+##### 체스판이 주어졌을 때 각 크기의 가지수를 찾는 것이 중요, 총 4가지의 경우가 나온다.```
 ```java
 int chessTriangle(int n, int m) {
     
@@ -24,3 +24,24 @@ int chessTriangle(int n, int m) {
     return 8*(a+b) + 16*c + 8*(d+e) + 8*(f+g);
 }
 ```
+
+##### 이런 풀이도 있다.
+```java
+int chessTriangle(int n, int m) {
+    int total=0;
+    n++;
+    m++;
+    total += Math.max((n-2)*(m-3)*8,0);
+    total += Math.max((n-3)*(m-3)*8,0);
+    total += Math.max((n-2)*(m-4)*8,0);
+    total += Math.max((n-3)*(m-4)*8,0);
+    
+    total += Math.max((m-2)*(n-3)*8,0);
+    total += Math.max((m-3)*(n-3)*8,0);
+    total += Math.max((m-2)*(n-4)*8,0);
+    total += Math.max((m-3)*(n-4)*8,0);
+    
+    return total;
+}
+```
+
