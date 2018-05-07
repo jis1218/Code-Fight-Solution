@@ -18,3 +18,11 @@ boolean validTime(String time) {
     return false;
 }
 ```
+
+##### 정규식으로 풀 수도 있다.
+```java
+boolean validTime(String time) {
+    return time.matches("(2[0-3]|[01]\\d):[0-5]\\d");
+}
+```
+
