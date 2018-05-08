@@ -1,0 +1,31 @@
+You've heard somewhere that a word is more powerful than an action. You decided to put this statement at a test by assigning a power value to each action and each word. To begin somewhere, you defined a power of a word as the sum of powers of its characters, where power of a character is equal to its 1-based index in the plaintext alphabet.
+Given a word, calculate its power.
+Example
+For word = "hello", the output should be
+wordPower(word) = 52.
+Letters 'h', 'e', 'l' and 'o' have powers 8, 5, 12 and 15, respectively. Thus, the total power of the word is 8 + 5 + 12 + 12 + 15 = 52.
+
+```python
+def wordPower(word):
+    num = dict(zip([chr(i) for i in range(97, 123)], [j for j in range(1, 27)]))
+    return sum([num[ch] for ch in word])
+```
+
+##### 다른 풀이
+```python
+def wordPower(word):
+    num =  {chr(n): n - 96 for n in range(97,123)}
+    return sum([num[ch] for ch in word])
+```
+
+```python
+def wordPower(word):
+    num = dict(zip(list(string.ascii_lowercase), range(1,27)))
+    return sum([num[ch] for ch in word])
+```
+
+```python
+def wordPower(word):
+    num = dict(zip('abcdefghijklmnopqrstuvwxyz', range(1, 27)))
+    return sum([num[ch] for ch in word])
+```
