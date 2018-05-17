@@ -37,3 +37,16 @@ boolean helper(Tree<Integer> left, Tree<Integer> right) {
     return (left.value.equals(right.value)) && helper(left.left, right.right) && helper(left.right, right.left);
 }
 ```
+```java
+boolean isTreeSymmetric(Tree<Integer> t) {
+    if (t == null) return true;
+    return compare(t.left, t.right);
+}
+
+boolean compare(Tree<Integer> left, Tree<Integer> right) {
+    if (left == null && right == null) return true;
+    if (left == null || right == null) return false;
+    if (!left.value.equals(right.value)) return false;
+    return compare(left.left, right.right) && compare(left.right, right.left);
+}
+```
