@@ -70,3 +70,16 @@ int[][] roadsBuilding(int cities, int[][] roads) {
     return result;
 }
 ```
+
+##### 파이썬 풀이
+```python
+def roadsBuilding(cities, roads):
+    result = []
+            
+    for i in range(cities):
+        for j in range(i+1, cities):
+            if [i, j] not in roads and [j, i] not in roads:
+                result.append([i, j])
+    
+    return result
+```
