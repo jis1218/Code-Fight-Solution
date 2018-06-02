@@ -4,6 +4,7 @@ Example
 For nums = [1, 1, 1], the output should be
 houseRobber(nums) = 2.
 The optimal way to get the most money in one night is to rob the first and the third houses for a total of 2.
+
 ##### 내 풀이에도 박수를 보내고 싶지만...
 ```java
 int houseRobber(int[] nums) {
