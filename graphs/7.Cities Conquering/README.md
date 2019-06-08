@@ -1,4 +1,3 @@
-```java
 int[] citiesConquering(int n, int[][] roads) {
     HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
     int[] result = new int[n];
@@ -19,9 +18,11 @@ int[] citiesConquering(int n, int[][] roads) {
         for(int i=0; i<n; i++){
             if(!map.containsKey(i)) continue;
             
-            if(map.get(i).size()==1){                
-                index.add(i);  
-            }            
+            if(map.get(i).size()<2){                
+                index.add(i); 
+                flag = false;
+            }    
+            
         }
         for(int i : index){
             if(map.get(i).size()>0){
@@ -29,21 +30,18 @@ int[] citiesConquering(int n, int[][] roads) {
                 map.get(temp).remove(Integer.valueOf(i));
             }            
             map.remove(i);
-            flag = false;
+            
             result[i] = count;
         }
-        System.out.println(flag);
         count++;
-        if(flag){
+         if(flag){
             for(int j : map.keySet()){
                 result[j] = -1;
             }
-            break;
+             break;
             
-        } 
+         } 
     }
     return result;
 
 }
-
-```
