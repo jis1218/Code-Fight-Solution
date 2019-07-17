@@ -17,6 +17,37 @@ result
 3
 0
 
+##### 문제 접근 방법은 찾았음, 코드도 훨씬 간결
+```java
+import java.util.*;
+class Solution {
+    public long solution(int n, int[] works) {
+        long answer = 0;
+        works = Arrays.stream(works).boxed().sorted(Comparator.reverseOrder()).mapToInt(i->i).toArray();
+        int count = 1;
+        for(int i = 0; i<works.length-1; i++){
+            int sub = works[i]-works[i+1];
+            for(int j=0; j<i+1; j++){
+                works[j]-=Math.min(sub,n);                
+                n-=Math.min(sub,n);
+                if(n==0) break;
+            }
+        }
+        
+        if(n==0){
+            for(int i=0; i<works.length; i++){
+            answer+=(long)works[i]*(long)works[i];                
+            }
+            return answer;
+        }else{
+            long a = works[0]-n/works.length;
+            if(a<1) return 0;
+            return a*a*(works.length-n%works.length) + (a-1)*(a-1)*(n%works.length);
+        }
+    }
+}
+```
+
 ##### 문제 접근 방법이 완전 틀림... 가령 10, 9가 있고 n=8이라고 하면 나는 가장 큰수에서 그냥 8을 빼버렸지만 그렇게 하면 안됨
 ##### 평균으로 접근해야 할듯...
 ```java
