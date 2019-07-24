@@ -17,7 +17,7 @@ result
 3
 0
 
-##### 문제 접근 방법은 찾았음, 코드도 훨씬 간결
+##### 문제 접근 방법은 찾았음, 코드도 훨씬 간결, 더 줄일 수도 있을 듯...
 ```java
 import java.util.*;
 class Solution {
@@ -35,23 +35,16 @@ class Solution {
                 }
             }else{
                 stop = i+1;
-                System.out.println(stop);
                 break;
             }            
-        }
+        }       
         
-        if(n==0){
-            for(int i=0; i<works.length; i++){
-            answer+=(long)works[i]*(long)works[i];                
-            }
-        }else{
-            long a = works[0]-n/stop;
-            if(a<1) return 0;
-            answer = a*a*(stop-n%stop) + (a-1)*(a-1)*(n%stop);
-            for(int i=stop; i<works.length; i++){
-                answer+=(long)works[i]*(long)works[i]; 
-            }
-        }
+        long a = works[0]-n/stop;
+        if(a<1) return 0;
+        answer = a*a*(stop-n%stop) + (a-1)*(a-1)*(n%stop);
+        for(int i=stop; i<works.length; i++){
+            answer+=(long)works[i]*(long)works[i]; 
+        }        
         return answer;
     }
 }
