@@ -52,3 +52,24 @@ char firstNotRepeatingCharacter(String s) {
     return '_';
 }
 ```
+
+##### HashSet과 LinkedHashSet을 이용한 나의 풀이
+```java
+char firstNotRepeatingCharacter(String s) {
+    int min = 0;
+    Set<Character> refSet = new HashSet<>();
+    Set<Character> orderedSet = new LinkedHashSet<>();
+    for(int i=0; i<s.length(); i++){
+        if(refSet.contains(s.charAt(i))){            
+            orderedSet.remove(s.charAt(i));
+        }else{            
+            refSet.add(s.charAt(i));
+            orderedSet.add(s.charAt(i));
+        }
+    }
+    while(orderedSet.iterator().hasNext()){
+        return orderedSet.iterator().next();
+    }
+    return '_';
+}
+```
