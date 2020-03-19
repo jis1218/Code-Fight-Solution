@@ -88,3 +88,21 @@ boolean isInteger(String s){
 }
 
 ```
+
+```python
+def decodeString(s):
+    li = []
+    for i in s:
+        if i==']':
+            temp = ''
+            while li[-1]!='[':
+                temp = li.pop() + temp
+            li.pop()
+            digit = ''
+            while len(li)!=0 and li[-1].isdigit():
+                digit = li.pop() + digit
+            li.append(int(digit)*temp)
+        else:
+            li.append(i)
+    return ''.join(li)
+```

@@ -46,3 +46,23 @@ int houseRobber(int[] h) {
     return b;
 }
 ```
+
+##### python으로 발버둥 쳤으나 나름 메모아이제이션까지 썼으나...
+```python
+def getMax(nums, index, memo):
+    
+    if index<0 :
+        return 0
+    if index==0 or index==1 :
+        return nums[index]
+    if memo[index]==None:
+        memo[index] = max(nums[index]+getMax(nums, index-2, memo), nums[index]+getMax(nums, index-3, memo))
+    return memo[index]
+
+def houseRobber(nums):
+    memo = [None]*len(nums)
+    if len(nums)==0 : return 0
+    if len(nums)==1 : return nums[0]
+    return max(getMax(nums, len(nums)-1, memo), getMax(nums, len(nums)-2, memo))
+```
+##### 위의 풀이를 따라갈 수는 없구나 쉽게 생각하기 어려운 풀이
