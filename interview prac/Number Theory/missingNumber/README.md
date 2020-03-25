@@ -30,3 +30,19 @@ int missingNumber(int[] arr) {
     return sum;
 }
 ```
+
+##### 다른 나의 풀이
+```java
+int missingNumber(int[] a) {
+    int n = a.length, s=0;
+    for(int i : a) s+=i;    
+    return (n*n+n)/2-s;
+}
+```
+
+##### 파이썬
+```python
+def missingNumber(a):
+    l=len(a)
+    return (l*l+l)/2-sum(a)
+```
