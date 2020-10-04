@@ -28,3 +28,32 @@ ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
     return l;
 }
 ```
+
+##### 3년만의 다시 풀이
+```java
+// Singly-linked lists are already defined with this interface:
+// class ListNode<T> {
+//   ListNode(T x) {
+//     value = x;
+//   }
+//   T value;
+//   ListNode<T> next;
+// }
+//
+ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
+    ListNode<Integer> root = l;
+    ListNode<Integer> prev = null;
+    while(l!=null){
+        if(l.value==k){
+            l = l.next;
+            if(prev!=null) prev.next = l;
+            else root = l;
+        }else{
+            ListNode<Integer> temp = l;
+            l = l.next;
+            prev = temp;
+        }
+    }
+    return root;
+}
+```
