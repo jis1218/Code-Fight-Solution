@@ -31,3 +31,11 @@ int adjacentElementsProduct(int[] inputArray) {
 
 }
 ```
+
+##### java IntStream을 이용한 풀이
+```java
+int adjacentElementsProduct(int[] inputArray) {
+    
+    return IntStream.range(0, inputArray.length-1).map(i -> inputArray[i]*inputArray[i+1]).max().getAsInt();
+}
+```
